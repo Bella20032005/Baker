@@ -1,0 +1,52 @@
+﻿<Page x:Class="Baker.Pages.AddChek"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Baker.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddChek">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,5,27">
+            <Label Content="Товар"/>
+            <ComboBox x:Name="CmbGoods" ItemsSource="{Binding Name}" SelectionChanged="CmbGoods_SelectionChanged" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Content="Продавец"/>
+            <ComboBox x:Name="CmbCasher" SelectionChanged="CmbDoc_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel >
+                            <Label Content="{Binding FIo}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Content="Дата"/>
+            <DatePicker x:Name="DatePick" />
+            <Label Content="Колличесво"/>
+            <TextBox x:Name="TxtKol_vo" TextChanged="TxtKol_vo_TextChanged"/>
+            <Label Content="Сумма"/>
+            <TextBox x:Name="TxtSumma" TextChanged="TxtSumma_TextChanged"/>
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Content="Сохранить" Click="ClEventAddNewProduct"/>
+    </Grid>
+</Page>
