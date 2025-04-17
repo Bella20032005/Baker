@@ -17,16 +17,14 @@
             <Label Content="поиск"/>
             <TextBox x:Name="TxtSerch"   TextChanged="TxtSerch_TextChanged"/>
             <DatePicker Name="dateChek" SelectedDateFormat="Short" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
-            <ComboBox>
-                
-            </ComboBox>
+           
             <Button  Content="Добаавить чек" Click="ClEventAddNewChek"></Button>
-            <Button x:Name="ButtonEdit" Content="Открыть" Visibility="Collapsed" Click="ButtonEdit_Click"/>
-            <Button x:Name="ButtonDelite" Content="Удалить" Visibility="Collapsed"  Click="ButtonDelite_Click"/>
+            <Button x:Name="ButtonEdit" Content="Открыть"  Click="ButtonEdit_Click"/>
+            <Button x:Name="ButtonDelite" Content="Удалить"   Click="ButtonDelite_Click"/>
 
 
         </StackPanel>
-        <ListView x:Name="ListChek" >
+        <ListView x:Name="ListChek" SelectionChanged="ListChek_SelectionChanged" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel >

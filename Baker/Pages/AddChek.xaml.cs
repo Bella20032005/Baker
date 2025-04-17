@@ -31,9 +31,10 @@ namespace Baker.Pages
             cheks = new List<Chek>(App.Connection.Chek.ToList());
             CmbCasher.ItemsSource = App.Connection.Cashier.ToList();
             DataContext = contextChek = chek;
+            var goods = App.Connection.Goods.ToList();
             if (contextChek != null)
             {
-                //CmbPet.Text = contextReseption.Pet.Name;
+
                 DatePick.Text = contextChek.Data_sale.ToString();
                 TxtKol_vo.Text = contextChek.Kol_vo.ToString();
                 TxtSumma.Text = contextChek.Summa.ToString();

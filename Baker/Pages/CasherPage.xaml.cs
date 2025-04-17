@@ -30,12 +30,13 @@ namespace Baker.Pages
             cashier1 = cashier;
             refresh();
             this.DataContext = this;
+            
 
         }
 
         private void refresh()
         {
-
+            
             chek = new List<Chek>(App.Connection.Chek.Where(i => i.Id_Cashier == cashier1.Id && i.IsDelete == false).ToList());
             ListChek.ItemsSource = chek;
             this.DataContext = this;
@@ -81,9 +82,9 @@ namespace Baker.Pages
         }
         private void DatePicker_SelectedDateChanged(object sender, RoutedEventArgs e)
         {
-            //List<Chek> datapicker = new List<Chek>(App.Connection.Chek.Where(i => i.Id_Cashier == cashier1.Id && i.IsDelete == false));
+            List<Chek> datapicker = new List<Chek>(App.Connection.Chek.Where(i => i.Id_Cashier == cashier1.Id && i.IsDelete == false));
 
-            if (dateChek.SelectedDate.HasValue)
+            if (dateChek.SelectedDate != null)
             {
                 DateTime selectedDate = dateChek.SelectedDate.Value.Date;
                 ListChek.ItemsSource = chek.FindAll(chek => chek.Data_sale.Value == selectedDate);
@@ -110,5 +111,39 @@ namespace Baker.Pages
             }
 
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if (CMBTarget.SelectedValue != null)
+            //{
+            //    var _sel = (CMBTarget.SelectedValue as ComboBoxItem).Content;
+            //    switch (_sel.ToString())
+            //    {
+            //        case "Очно":
+            //            {
+            //                refresh();
+            //                students = students.Where(z => z.Type_of_study == "Очно").ToList();
+            //                ListApp.ItemsSource = students.ToList();
+            //                LblCounter.Content = students.Count;
+            //                break;
+            //            }
+            //        case "Заочно":
+            //            {
+            //                refresh();
+            //                students = students.Where(z => z.Type_of_study == "Заочно").ToList();
+            //                ListApp.ItemsSource = students.ToList();
+            //                LblCounter.Content = students.Count;
+            //                break;
+            //            }
+            //        case "все":
+            //            {
+            //                refresh();
+            //                break;
+            //            }
+            //    }
+            //}
+        }
+
+        
     }
 }
